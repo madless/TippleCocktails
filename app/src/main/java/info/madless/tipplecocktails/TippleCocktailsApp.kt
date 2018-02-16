@@ -1,17 +1,14 @@
 package info.madless.tipplecocktails
 
 import android.app.Application
-import android.util.Log
-import info.madless.tipplecocktails.data.ApiServiceModule
+import info.madless.tipplecocktails.utils.Logger
 
 /**
  * 15/2/2018.
  */
 class TippleCocktailsApp: Application() {
 
-    companion object {
-        var applicationComponent: ApplicationComponent? = null
-    }
+    protected val logger: Logger = Logger(this.javaClass)
 
     override fun onCreate() {
         super.onCreate()
@@ -19,10 +16,6 @@ class TippleCocktailsApp: Application() {
     }
 
     fun init() {
-        Log.d("madless", "app init")
-        applicationComponent = DaggerApplicationComponent
-                .builder()
-                .apiServiceModule(ApiServiceModule())
-                .build()
+        logger.d("app init")
     }
 }
