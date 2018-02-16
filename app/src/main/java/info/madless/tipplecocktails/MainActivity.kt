@@ -12,9 +12,11 @@ class MainActivity : BaseActivity() {
 
         logger.d("Activity onCreate ${this.hashCode()}")
 
-        val cocktailsFragment = CocktailsFragment()
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, cocktailsFragment)
-                .commit()
+        if(savedInstanceState == null) {
+            val cocktailsFragment = CocktailsFragment()
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, cocktailsFragment)
+                    .commit()
+        }
     }
 }
