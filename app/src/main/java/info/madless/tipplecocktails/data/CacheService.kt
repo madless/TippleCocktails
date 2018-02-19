@@ -6,30 +6,30 @@ import info.madless.tipplecocktails.server_models.SearchResponse
 import io.reactivex.Observable
 
 /**
- * 15/2/2018.
+ * Created by User on 16.02.2018.
  */
-class Repository(val apiService: ApiService, val cacheService: CacheService): ApiService {
+class CacheService(): ApiService {
     override fun searchCocktailByName(cocktailName: String): Observable<SearchResponse> {
-        return apiService.searchCocktailByName(cocktailName)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun searchCocktailById(id: String): Observable<SearchResponse> {
-        return apiService.searchCocktailById(id)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun searchIngredientByName(ingredientName: String): Observable<IngredientFullResponse> {
-        return apiService.searchIngredientByName(ingredientName)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun filterCocktailByAlcoholic(alcoholicType: String): Observable<DrinkShortResponse> {
-        return apiService.filterCocktailByAlcoholic(alcoholicType)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun filterCocktailByIngredient(ingredientName: String): Observable<DrinkShortResponse> {
-        return apiService.filterCocktailByIngredient(ingredientName)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun filterCocktailByCategory(category: String): Observable<DrinkShortResponse> {
-        return apiService.filterCocktailByCategory(category)
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

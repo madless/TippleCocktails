@@ -2,8 +2,9 @@ package info.madless.tipplecocktails.data
 
 import dagger.Module
 import dagger.Provides
-import info.madless.tipplecocktails.sections.PerAppScope
+import info.madless.tipplecocktails.sections.AppScope
 import info.madless.tipplecocktails.utils.Const
+import info.madless.tipplecocktails.utils.Logger
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,8 +18,10 @@ import java.util.concurrent.TimeUnit
 @Module
 class ApiServiceModule {
 
+    private val logger = Logger(ApiServiceModule::class.java)
+
     @Provides
-    @PerAppScope
+    @AppScope
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
@@ -26,7 +29,7 @@ class ApiServiceModule {
     }
 
     @Provides
-    @PerAppScope
+    @AppScope
     fun provideHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient {
         return OkHttpClient.Builder()
                 .connectTimeout(15, TimeUnit.SECONDS)
@@ -36,7 +39,7 @@ class ApiServiceModule {
     }
 
     @Provides
-    @PerAppScope
+    @AppScope
     fun provideRetrofit(httpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(Const.BASE_COCKTAILSDB_URL)
@@ -47,8 +50,9 @@ class ApiServiceModule {
     }
 
     @Provides
-    @PerAppScope
+    @AppScope
     fun providesApiService(retrofit: Retrofit): ApiService {
+        logger.d("providesApiService")
         return retrofit.create(ApiService::class.java)
     }
 

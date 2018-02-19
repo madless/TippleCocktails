@@ -29,32 +29,4 @@ interface ApiService {
 
     @GET("filter.phh")
     fun filterCocktailByCategory(@Query("c") category: String): Observable<DrinkShortResponse>
-
-//    /**
-//     * Companion object to create the ApiService
-//     */
-//    companion object Factory {
-//        fun create(): ApiService {
-//            val client = buildOkHttpClientInstance()
-//            val retrofit = Retrofit.Builder()
-//                    .client(client)
-//                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-//                    .addConverterFactory(GsonConverterFactory.create())
-//                    .baseUrl("http://www.thecocktaildb.com/api/json/v1/1/")
-//                    .build()
-//            return retrofit.create(ApiService::class.java)
-//        }
-//
-//        private fun buildOkHttpClientInstance(): OkHttpClient {
-//            val interceptor = HttpLoggingInterceptor()
-//            interceptor.level = HttpLoggingInterceptor.Level.BODY
-//            return OkHttpClient.Builder()
-//                    .connectTimeout(15, TimeUnit.SECONDS)
-//                    .readTimeout(15, TimeUnit.SECONDS)
-//                    .addInterceptor(interceptor)
-//                    .build()
-//        }
-//    }
-
-
 }

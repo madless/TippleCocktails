@@ -1,31 +1,31 @@
 package info.madless.tipplecocktails.sections.cocktails_list
 
-import info.madless.tipplecocktails.data.ApiService
+import info.madless.tipplecocktails.data.Repository
+import info.madless.tipplecocktails.sections.AppScope
 import info.madless.tipplecocktails.sections.abs.BasePresenter
 import info.madless.tipplecocktails.sections.cocktails_list.abs.CocktailsFragmentView
 import info.madless.tipplecocktails.server_models.SearchResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Singleton
 
 /**
  * 16/2/2018.
  */
-@Singleton
+@AppScope
 class CocktailsFragmentPresenter(): BasePresenter() {
 
     lateinit var cocktailsFragmentView: CocktailsFragmentView
-    lateinit var apiService: ApiService
+    lateinit var repository: Repository
 
-    constructor(cocktailsFragmentView: CocktailsFragmentView, apiService: ApiService) : this() {
+    constructor(cocktailsFragmentView: CocktailsFragmentView, repository: Repository) : this() {
         this.cocktailsFragmentView = cocktailsFragmentView
-        this.apiService = apiService
+        this.repository = repository
         logger.d("Constructor presenter: ${this.hashCode()}")
     }
 
     fun execute() {
         logger.d("Execute in presenter: ${this.hashCode()}")
-        apiService.searchCocktailByName("margarita")
+        repository.searchCocktailByName("margarita")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe ({
