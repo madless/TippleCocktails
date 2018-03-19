@@ -1,6 +1,7 @@
-package info.madless.tipplecocktails.data
+package info.madless.tipplecocktails.data.di
 
 import dagger.Component
+import info.madless.tipplecocktails.data.Repository
 import info.madless.tipplecocktails.sections.AppScope
 
 /**
@@ -9,5 +10,5 @@ import info.madless.tipplecocktails.sections.AppScope
 @AppScope
 @Component(modules = arrayOf(RepositoryModule::class))
 interface RepositoryComponent {
-    fun getRepositoryComponent(): RepositoryComponent
+    fun getRepository(): Repository
 }

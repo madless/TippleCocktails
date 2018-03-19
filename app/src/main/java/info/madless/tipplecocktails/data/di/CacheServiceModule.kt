@@ -1,7 +1,8 @@
-package info.madless.tipplecocktails.data
+package info.madless.tipplecocktails.data.di
 
 import dagger.Module
 import dagger.Provides
+import info.madless.tipplecocktails.data.cache.CacheService
 
 /**
  * Created by User on 16.02.2018.

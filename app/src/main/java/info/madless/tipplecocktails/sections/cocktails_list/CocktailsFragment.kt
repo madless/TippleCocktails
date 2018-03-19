@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import info.madless.tipplecocktails.R
+import info.madless.tipplecocktails.TippleCocktailsApp
 import info.madless.tipplecocktails.sections.abs.BaseFragment
 import info.madless.tipplecocktails.sections.cocktails_list.abs.CocktailsFragmentView
 import info.madless.tipplecocktails.sections.cocktails_list.di.CocktailsFragmentComponent
+import info.madless.tipplecocktails.sections.cocktails_list.di.CocktailsFragmentPresenterModule
 import info.madless.tipplecocktails.sections.cocktails_list.di.CocktailsFragmentViewModule
 import info.madless.tipplecocktails.sections.cocktails_list.di.DaggerCocktailsFragmentComponent
 
@@ -38,12 +40,12 @@ class CocktailsFragment: BaseFragment(), CocktailsFragmentView {
         logger.d("Fragment onDestroyView ${this.hashCode()}")
     }
 
-
-
     private fun init() {
         val cocktailsFragmentViewModule = CocktailsFragmentViewModule(this)
+        val cocktailsFragmentPresenterModule = CocktailsFragmentPresenterModule(TippleCocktailsApp.repositoryComponent.getRepository())
         cocktailsFragmentComponent = DaggerCocktailsFragmentComponent.builder()
                 .cocktailsFragmentViewModule(cocktailsFragmentViewModule)
+                .cocktailsFragmentPresenterModule(cocktailsFragmentPresenterModule)
                 .build()
         presenter = cocktailsFragmentComponent?.getCocktailsFragmentPresenter()
     }
