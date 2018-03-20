@@ -28,7 +28,7 @@ class MockHelper {
                 input.close()
                 val drinksJson = buf.toString()
                 val drinksObj: Drinks = Gson().fromJson(drinksJson, Drinks::class.java)
-                return drinksObj.drinks.subList(0,3)
+                return drinksObj.drinks.subList(0, drinksObj.drinks.size - 1)
             } catch (e: Exception) {
                 e.printStackTrace()
             }

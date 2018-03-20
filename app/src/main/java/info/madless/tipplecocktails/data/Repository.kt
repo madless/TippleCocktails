@@ -54,4 +54,8 @@ class Repository(private val apiService: ApiService, private val cacheService: C
     override fun deleteAllIngredients() {
         dbService.getIngredientDao().deleteAllIngredients()
     }
+
+    override fun getDrinksByAlcoholicType(alcoholType: String): List<DrinkDb> {
+        return dbService.getDrinkDao().getDrinksByAlcoholicType(alcoholType)
+    }
 }
