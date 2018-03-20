@@ -8,7 +8,6 @@ import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
 import info.madless.tipplecocktails.sections.CocktailsByAlcoholFragment
 import info.madless.tipplecocktails.utils.Logger
-import java.util.*
 
 /**
  * 19/3/2018.
@@ -18,19 +17,22 @@ class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val contex
 
     private val logger = Logger(this.javaClass)
 
-    var alcoholicDrinks: List<Drink> = ArrayList()
-    var nonAlcoholicDrinks: List<Drink> = ArrayList()
-    var optionalDrinks: List<Drink> = ArrayList()
+//    var alcoholicDrinks: List<Drink> = ArrayList()
+//    var nonAlcoholicDrinks: List<Drink> = ArrayList()
+//    var optionalDrinks: List<Drink> = ArrayList()
+
+    var fragmentAlcoholicDrinks = CocktailsByAlcoholFragment()
+    var fragmentNonAlcoholicDrinks = CocktailsByAlcoholFragment()
+    var fragmentOptionalDrinks = CocktailsByAlcoholFragment()
 
     override fun getItem(position: Int): Fragment {
         logger.d("getItem $position")
-        val fragment = CocktailsByAlcoholFragment()
         when (position) {
-            0 -> fragment.updateDrinks(alcoholicDrinks)
-            1 -> fragment.updateDrinks(nonAlcoholicDrinks)
-            2 -> fragment.updateDrinks(optionalDrinks)
+            0 -> return fragmentAlcoholicDrinks
+            1 -> return fragmentNonAlcoholicDrinks
+            2 -> return fragmentOptionalDrinks
         }
-        return fragment
+        return fragmentAlcoholicDrinks
     }
 
     override fun getCount(): Int {
@@ -46,5 +48,11 @@ class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val contex
         return super.getPageTitle(position)
     }
 
+    fun updateDrinks(alcoholicDrinks: List<Drink>, nonAlcoholicDrinks: List<Drink>, optionalDrinks: List<Drink>) {
+        logger.d("updateDrinks")
+        fragmentAlcoholicDrinks.updateDrinks(alcoholicDrinks)
+        fragmentNonAlcoholicDrinks.updateDrinks(nonAlcoholicDrinks)
+        fragmentOptionalDrinks.updateDrinks(optionalDrinks)
+    }
 }
 

@@ -53,6 +53,10 @@ class CocktailsFragment: BaseFragment(), CocktailsFragmentView {
                 .cocktailsFragmentPresenterModule(cocktailsFragmentPresenterModule)
                 .build()
         presenter = cocktailsFragmentComponent?.getCocktailsFragmentPresenter()
+
+        pagerAdapter = CocktailsPagerAdapter(childFragmentManager, context)
+        alcoholTypesPager.adapter = pagerAdapter
+        alcoholTypesTabs.setupWithViewPager(alcoholTypesPager)
     }
 
     override fun onLoadingStarted() {
@@ -64,11 +68,7 @@ class CocktailsFragment: BaseFragment(), CocktailsFragmentView {
     }
 
     override fun onDrinksFetched(alcoholicDrinks: List<Drink>, nonAlcoholicDrinks: List<Drink>, optionalDrinks: List<Drink>) {
-        pagerAdapter = CocktailsPagerAdapter(childFragmentManager, context)
-        pagerAdapter?.alcoholicDrinks = alcoholicDrinks
-        pagerAdapter?.nonAlcoholicDrinks = nonAlcoholicDrinks
-        pagerAdapter?.optionalDrinks = optionalDrinks
-        alcoholTypesPager.adapter = pagerAdapter
-        alcoholTypesTabs.setupWithViewPager(alcoholTypesPager)
+        logger.d("onDrinksFetched")
+        pagerAdapter?.updateDrinks(alcoholicDrinks, nonAlcoholicDrinks, optionalDrinks)
     }
 }

@@ -15,10 +15,10 @@ import kotlinx.android.synthetic.main.fragment_cocktails_by_alcohol_types.*
  */
 class CocktailsByAlcoholFragment: BaseFragment() {
 
-    var drinks: List<Drink> = ArrayList()
     var adapter = CocktailsListAdapter()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        logger.d("Fragment onCreateView ${this.hashCode()}")
         val root = inflater?.inflate(R.layout.fragment_cocktails_by_alcohol_types, container, false)
         return root
     }
@@ -28,10 +28,11 @@ class CocktailsByAlcoholFragment: BaseFragment() {
         logger.d("Fragment onViewCreated ${this.hashCode()}")
         rvCocktails.adapter = adapter
         rvCocktails.layoutManager = LinearLayoutManager(context)
+        adapter.notifyDataSetChanged()
     }
 
     fun updateDrinks(drinks: List<Drink>) {
-        this.drinks = drinks
+        logger.d("updateDrinks ${this.hashCode()}")
         adapter.drinks = drinks
         adapter.notifyDataSetChanged()
     }
