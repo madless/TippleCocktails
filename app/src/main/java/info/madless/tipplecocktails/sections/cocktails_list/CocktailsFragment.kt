@@ -27,12 +27,12 @@ class CocktailsFragment: BaseFragment(), CocktailsFragmentView {
     var presenter: CocktailsFragmentPresenter? = null
     var pagerAdapter: CocktailsPagerAdapter? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater?.inflate(R.layout.fragment_cocktails, container, false)
         return root
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
         presenter?.execute()

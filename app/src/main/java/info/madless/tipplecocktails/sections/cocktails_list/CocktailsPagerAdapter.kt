@@ -15,7 +15,7 @@ import info.madless.tipplecocktails.utils.Logger
  * 19/3/2018.
  */
 
-class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val context: Context) : FragmentStatePagerAdapter(fragmentManager) {
+class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val context: Context?) : FragmentStatePagerAdapter(fragmentManager) {
 
     private val logger = Logger(this.javaClass)
 
@@ -39,11 +39,11 @@ class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val contex
         return FRAGMENTS_COUNT
     }
 
-    override fun getPageTitle(position: Int): CharSequence {
+    override fun getPageTitle(position: Int): CharSequence? {
         when (position) {
-            0 -> return context.getString(R.string.cocktail_type_alcoholic)
-            1 -> return context.getString(R.string.cocktail_type_non_alcoholic)
-            2 -> return context.getString(R.string.cocktail_type_optional)
+            0 -> return context?.getString(R.string.cocktail_type_alcoholic)
+            1 -> return context?.getString(R.string.cocktail_type_non_alcoholic)
+            2 -> return context?.getString(R.string.cocktail_type_optional)
         }
         return super.getPageTitle(position)
     }

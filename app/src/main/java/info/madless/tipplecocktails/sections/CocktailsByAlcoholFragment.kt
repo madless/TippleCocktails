@@ -32,16 +32,16 @@ class CocktailsByAlcoholFragment: BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.drinks = arguments.getSerializable(KEY_DRINKS) as ArrayList<Drink>
+        this.drinks = arguments?.getSerializable(KEY_DRINKS) as ArrayList<Drink>
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         logger.d("Fragment onCreateView ${this.hashCode()}")
-        val root = inflater?.inflate(R.layout.fragment_cocktails_by_alcohol_types, container, false)
+        val root = inflater.inflate(R.layout.fragment_cocktails_by_alcohol_types, container, false)
         return root
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         logger.d("Fragment onViewCreated ${this.hashCode()} drinks ${drinks.size}")
         rvCocktails.adapter = adapter
