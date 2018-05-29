@@ -29,5 +29,7 @@ class TippleCocktailsApp: Application() {
                 .dbServiceModule(dbServiceModule)
                 .build()
         appContext = applicationContext
+
+//        DbService.exportDatabse(appContext, Const.COCKTAILS_DB_NAME)
     }
 }
