@@ -62,7 +62,7 @@ class CocktailsFragmentPresenter() : BasePresenter() {
 
     }
 
-    fun mapDrinks(drinksDb: List<DrinkDb>): List<Drink> {
+    fun mapDrinks(drinksDb: List<DrinkDb>): ArrayList<Drink> {
         val drinks = ArrayList<Drink>()
         for (drink in drinksDb) {
             val ingredients = repository.getIngredientsByDrink(drink.id)

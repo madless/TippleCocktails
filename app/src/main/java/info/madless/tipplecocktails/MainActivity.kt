@@ -10,7 +10,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        logger.d("Activity onCreate ${this.hashCode()}")
+        logger.d("Activity onCreate ${this.hashCode()} savedInstanceState $savedInstanceState")
 
         if(savedInstanceState == null) {
             val cocktailsFragment = CocktailsFragment()

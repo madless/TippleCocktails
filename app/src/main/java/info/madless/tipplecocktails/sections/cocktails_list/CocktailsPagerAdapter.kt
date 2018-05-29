@@ -3,40 +3,40 @@ package info.madless.tipplecocktails.sections.cocktails_list
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.app.FragmentStatePagerAdapter
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
 import info.madless.tipplecocktails.sections.CocktailsByAlcoholFragment
 import info.madless.tipplecocktails.utils.Logger
 
+
+
 /**
  * 19/3/2018.
  */
 
-class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val context: Context) : FragmentPagerAdapter(fragmentManager) {
+class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val context: Context) : FragmentStatePagerAdapter(fragmentManager) {
 
     private val logger = Logger(this.javaClass)
 
-//    var alcoholicDrinks: List<Drink> = ArrayList()
-//    var nonAlcoholicDrinks: List<Drink> = ArrayList()
-//    var optionalDrinks: List<Drink> = ArrayList()
+    companion object {
+        private const val FRAGMENTS_COUNT = 3
+    }
 
-    var fragmentAlcoholicDrinks = CocktailsByAlcoholFragment()
-    var fragmentNonAlcoholicDrinks = CocktailsByAlcoholFragment()
-    var fragmentOptionalDrinks = CocktailsByAlcoholFragment()
+    private var data: ArrayList<ArrayList<Drink>> = ArrayList()
+    private var fragments = Array<CocktailsByAlcoholFragment?>(3, { _ -> null})
 
     override fun getItem(position: Int): Fragment {
         logger.d("getItem $position")
-        when (position) {
-            0 -> return fragmentAlcoholicDrinks
-            1 -> return fragmentNonAlcoholicDrinks
-            2 -> return fragmentOptionalDrinks
+        if (fragments[position] == null) {
+            val fragment = CocktailsByAlcoholFragment.getFragment(data[position])
+            fragments[position] = fragment
         }
-        return fragmentAlcoholicDrinks
+        return fragments[position]!!
     }
 
     override fun getCount(): Int {
-        return 3
+        return FRAGMENTS_COUNT
     }
 
     override fun getPageTitle(position: Int): CharSequence {
@@ -48,11 +48,13 @@ class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val contex
         return super.getPageTitle(position)
     }
 
-    fun updateDrinks(alcoholicDrinks: List<Drink>, nonAlcoholicDrinks: List<Drink>, optionalDrinks: List<Drink>) {
+    fun updateDrinks(alcoholicDrinks: ArrayList<Drink>, nonAlcoholicDrinks: ArrayList<Drink>, optionalDrinks: ArrayList<Drink>) {
         logger.d("updateDrinks")
-        fragmentAlcoholicDrinks.updateDrinks(alcoholicDrinks)
-        fragmentNonAlcoholicDrinks.updateDrinks(nonAlcoholicDrinks)
-        fragmentOptionalDrinks.updateDrinks(optionalDrinks)
+        data.clear()
+        data.add(alcoholicDrinks)
+        data.add(nonAlcoholicDrinks)
+        data.add(optionalDrinks)
+        notifyDataSetChanged()
     }
 }
 

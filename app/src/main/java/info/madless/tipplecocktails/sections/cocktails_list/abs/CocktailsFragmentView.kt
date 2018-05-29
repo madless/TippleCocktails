@@ -8,5 +8,5 @@ import info.madless.tipplecocktails.models.ui_entities.Drink
 interface CocktailsFragmentView {
     fun onLoadingStarted()
     fun onLoadingFinished()
-    fun onDrinksFetched(alcoholicDrinks: List<Drink>, nonAlcoholicDrinks: List<Drink>, optionalDrinks: List<Drink>)
+    fun onDrinksFetched(alcoholicDrinks: ArrayList<Drink>, nonAlcoholicDrinks: ArrayList<Drink>, optionalDrinks: ArrayList<Drink>)
 }

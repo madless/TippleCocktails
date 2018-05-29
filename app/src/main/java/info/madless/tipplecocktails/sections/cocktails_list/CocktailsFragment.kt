@@ -67,8 +67,8 @@ class CocktailsFragment: BaseFragment(), CocktailsFragmentView {
         progressBar.visibility = GONE
     }
 
-    override fun onDrinksFetched(alcoholicDrinks: List<Drink>, nonAlcoholicDrinks: List<Drink>, optionalDrinks: List<Drink>) {
-        logger.d("onDrinksFetched")
+    override fun onDrinksFetched(alcoholicDrinks: ArrayList<Drink>, nonAlcoholicDrinks: ArrayList<Drink>, optionalDrinks: ArrayList<Drink>) {
+        logger.d("onDrinksFetched alcoholicDrinks: ${alcoholicDrinks.size} nonAlcoholicDrinks: ${nonAlcoholicDrinks.size} optionalDrinks ${optionalDrinks.size}")
         pagerAdapter?.updateDrinks(alcoholicDrinks, nonAlcoholicDrinks, optionalDrinks)
     }
 }

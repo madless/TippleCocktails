@@ -1,6 +1,7 @@
 package info.madless.tipplecocktails.models.ui_entities
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * 15/2/2018.
@@ -14,6 +15,6 @@ data class Drink(
         @SerializedName("strInstructions") var instructions: String?,
         @SerializedName("strDrinkThumb") var cocktailImageUrl: String?,
         @SerializedName("ingredients") var ingredients: List<Ingredient>?
-) {
+) : Serializable {
     constructor(): this("", null, null, null, null, null, null, null)
 }
