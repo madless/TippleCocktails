@@ -1,10 +1,16 @@
 package info.madless.tipplecocktails.sections
 
+import android.app.Activity
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.FitCenter
+import com.bumptech.glide.request.RequestOptions
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
+import info.madless.tipplecocktails.utils.Logger
 import info.madless.tipplecocktails.utils.inflate
 import kotlinx.android.synthetic.main.item_cocktail.view.*
 
@@ -15,6 +21,7 @@ import kotlinx.android.synthetic.main.item_cocktail.view.*
 class CocktailsListAdapter : RecyclerView.Adapter<CocktailsListAdapter.CocktailViewHolder>() {
 
     var drinks: List<Drink> = ArrayList()
+    private val logger: Logger = Logger(this.javaClass)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CocktailViewHolder(parent.inflate(R.layout.item_cocktail))
 
@@ -24,8 +31,18 @@ class CocktailsListAdapter : RecyclerView.Adapter<CocktailsListAdapter.CocktailV
 
     inner class CocktailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(drink: Drink) = with(itemView) {
+            val activity = context as? Activity
+            if (activity != null && !activity.isDestroyed && !activity.isFinishing) {
+                val options = RequestOptions()
+                        .transforms(FitCenter())
+                val uri = Uri.parse(drink.cocktailImageUrl)
+                Glide.with(activity)
+                        .load(uri)
+                        .apply(options)
+                        .into(ivCocktail)
+            }
             tvTitle.text = drink.name
-//            tvDetails.text = drink.
+            tvDetails.text = drink.category
         }
     }
 }

@@ -8,4 +8,19 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="tipple_tab_text_apperance_style" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/tab_text_size</item>
+    </style>
+
+    <style name="tipple_tab_style" parent="Base.Widget.Design.TabLayout">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="tabGravity">fill</item>
+        <item name="tabMaxWidth">0dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabSelectedTextColor">@color/colorWhite</item>
+        <item name="tabTextColor">@color/colorWhite</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="tabTextAppearance">@style/tipple_tab_text_apperance_style</item>
+    </style>
+
 </resources>

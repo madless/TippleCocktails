@@ -51,7 +51,12 @@ class CocktailsFragmentPresenter() : BasePresenter() {
         val fillDbObservable = Observable.create { emitter: ObservableEmitter<Any>? ->
             logger.d("Started db filling...")
             for (drink in drinks) {
-                val drinkDb = DrinkDb(drink.id, drink.name, drink.category, drink.alcoholType, drink.glassType, drink.instructions, drink.cocktailImageUrl)
+                val url = if (drink.cocktailImageUrl?.contains("http://|https://") == true) {
+                    drink.cocktailImageUrl
+                } else {
+                    "http://${drink.cocktailImageUrl}"
+                }
+                val drinkDb = DrinkDb(drink.id, drink.name, drink.category, drink.alcoholType, drink.glassType, drink.instructions, url)
                 repository.insertDrink(drinkDb)
                 drink.ingredients?.let {
                     for (i in it) {

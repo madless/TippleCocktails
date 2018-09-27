@@ -1,29 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/cocktails_list_margins_size"
+    android:paddingRight="@dimen/cocktails_list_margins_size"
+    android:paddingTop="@dimen/cocktails_list_margins_size_half">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivCocktail"
         android:layout_width="@dimen/drink_image_size"
         android:layout_height="@dimen/drink_image_size"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/cocktails_list_margins_size"
         android:layout_weight="1"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            tools:text="Title" />
+
         <TextView
             android:id="@+id/tvDetails"
-            android:text="Details"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:text="Details" />
     </LinearLayout>
 
 </LinearLayout>
