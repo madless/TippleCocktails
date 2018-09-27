@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections.cocktails_list
+package info.madless.tipplecocktails.screens.main
 
 import android.content.Context
 import android.support.v4.app.Fragment
@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
-import info.madless.tipplecocktails.sections.CocktailsByAlcoholFragment
 import info.madless.tipplecocktails.utils.Logger
 
 
@@ -24,12 +23,12 @@ class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val contex
     }
 
     private var data: ArrayList<ArrayList<Drink>> = ArrayList()
-    private var fragments = Array<CocktailsByAlcoholFragment?>(3, { _ -> null})
+    private var fragments = Array<CocktailsByTypeFragment?>(3, { _ -> null})
 
     override fun getItem(position: Int): Fragment {
         logger.d("getItem $position")
         if (fragments[position] == null) {
-            val fragment = CocktailsByAlcoholFragment.getFragment(data[position])
+            val fragment = CocktailsByTypeFragment.getFragment(data[position])
             fragments[position] = fragment
         }
         return fragments[position]!!

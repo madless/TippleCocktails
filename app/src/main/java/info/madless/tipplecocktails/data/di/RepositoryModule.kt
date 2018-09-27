@@ -2,11 +2,11 @@ package info.madless.tipplecocktails.data.di
 
 import dagger.Module
 import dagger.Provides
+import info.madless.tipplecocktails.AppScope
 import info.madless.tipplecocktails.data.Repository
 import info.madless.tipplecocktails.data.cache.CacheService
 import info.madless.tipplecocktails.data.db.DbService
 import info.madless.tipplecocktails.data.network.ApiService
-import info.madless.tipplecocktails.sections.AppScope
 import info.madless.tipplecocktails.utils.Logger
 
 /**

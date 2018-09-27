@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections.abs
+package info.madless.tipplecocktails.screens.abs
 
 import info.madless.tipplecocktails.utils.Logger
 

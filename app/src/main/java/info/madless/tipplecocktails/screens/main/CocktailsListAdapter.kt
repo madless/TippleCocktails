@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections
+package info.madless.tipplecocktails.screens.main
 
 import android.app.Activity
 import android.net.Uri

@@ -1,8 +1,8 @@
-package info.madless.tipplecocktails.sections.cocktails_list.di
+package info.madless.tipplecocktails.screens.main.di
 
 import dagger.Component
-import info.madless.tipplecocktails.sections.AppScope
-import info.madless.tipplecocktails.sections.cocktails_list.CocktailsFragmentPresenter
+import info.madless.tipplecocktails.AppScope
+import info.madless.tipplecocktails.screens.main.CocktailsFragmentPresenter
 
 /**
  * 16/2/2018.

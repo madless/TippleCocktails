@@ -7,8 +7,8 @@ import info.madless.tipplecocktails.data.db.dao.IngredientDao
 import info.madless.tipplecocktails.data.network.ApiService
 import info.madless.tipplecocktails.models.db_entities.DrinkDb
 import info.madless.tipplecocktails.models.db_entities.IngredientDb
-import info.madless.tipplecocktails.server_models.DrinkShortResponse
-import info.madless.tipplecocktails.server_models.SearchResponse
+import info.madless.tipplecocktails.models.server_models.DrinkShortResponse
+import info.madless.tipplecocktails.models.server_models.SearchResponse
 import io.reactivex.Observable
 
 /**

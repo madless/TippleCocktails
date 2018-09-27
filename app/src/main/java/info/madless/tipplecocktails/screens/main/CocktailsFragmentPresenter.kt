@@ -1,13 +1,13 @@
-package info.madless.tipplecocktails.sections.cocktails_list
+package info.madless.tipplecocktails.screens.main
 
 import info.madless.tipplecocktails.TippleCocktailsApp
 import info.madless.tipplecocktails.data.Repository
 import info.madless.tipplecocktails.models.db_entities.DrinkDb
 import info.madless.tipplecocktails.models.db_entities.IngredientDb
 import info.madless.tipplecocktails.models.ui_entities.Drink
-import info.madless.tipplecocktails.sections.AppScope
-import info.madless.tipplecocktails.sections.abs.BasePresenter
-import info.madless.tipplecocktails.sections.cocktails_list.abs.CocktailsFragmentView
+import info.madless.tipplecocktails.AppScope
+import info.madless.tipplecocktails.screens.abs.BasePresenter
+import info.madless.tipplecocktails.screens.main.abs.CocktailsFragmentView
 import info.madless.tipplecocktails.utils.Const
 import info.madless.tipplecocktails.utils.DrinkMapper
 import info.madless.tipplecocktails.utils.MockHelper

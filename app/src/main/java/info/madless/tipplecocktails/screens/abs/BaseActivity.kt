@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections.abs
+package info.madless.tipplecocktails.screens.abs
 
 import android.support.v7.app.AppCompatActivity
 import info.madless.tipplecocktails.utils.Logger

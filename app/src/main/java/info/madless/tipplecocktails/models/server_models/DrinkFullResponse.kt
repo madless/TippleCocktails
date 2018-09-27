@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.server_models
+package info.madless.tipplecocktails.models.server_models
 
 import com.google.gson.annotations.SerializedName
 

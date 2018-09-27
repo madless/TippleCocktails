@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections
+package info.madless.tipplecocktails.screens.main
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -7,22 +7,22 @@ import android.view.View
 import android.view.ViewGroup
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
-import info.madless.tipplecocktails.sections.abs.BaseFragment
+import info.madless.tipplecocktails.screens.abs.BaseFragment
 import kotlinx.android.synthetic.main.fragment_cocktails_by_alcohol_types.*
 import java.util.*
 
 /**
  * 15/2/2018.
  */
-class CocktailsByAlcoholFragment: BaseFragment() {
+class CocktailsByTypeFragment: BaseFragment() {
 
     var drinks: ArrayList<Drink> = ArrayList()
     var adapter = CocktailsListAdapter()
 
     companion object {
         private const val KEY_DRINKS = "drinks"
-        public fun getFragment(alcoholicDrinks: ArrayList<Drink>): CocktailsByAlcoholFragment {
-            val fragment = CocktailsByAlcoholFragment()
+        public fun getFragment(alcoholicDrinks: ArrayList<Drink>): CocktailsByTypeFragment {
+            val fragment = CocktailsByTypeFragment()
             val bundle = Bundle()
             bundle.putSerializable(KEY_DRINKS, alcoholicDrinks)
             fragment.arguments = bundle

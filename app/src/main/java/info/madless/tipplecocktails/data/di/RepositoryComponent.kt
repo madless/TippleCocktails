@@ -1,8 +1,8 @@
 package info.madless.tipplecocktails.data.di
 
 import dagger.Component
+import info.madless.tipplecocktails.AppScope
 import info.madless.tipplecocktails.data.Repository
-import info.madless.tipplecocktails.sections.AppScope
 
 /**
  * Created by User on 16.02.2018.

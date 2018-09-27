@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections.cocktails_list
+package info.madless.tipplecocktails.screens.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.TippleCocktailsApp
 import info.madless.tipplecocktails.models.ui_entities.Drink
-import info.madless.tipplecocktails.sections.abs.BaseFragment
-import info.madless.tipplecocktails.sections.cocktails_list.abs.CocktailsFragmentView
-import info.madless.tipplecocktails.sections.cocktails_list.di.CocktailsFragmentComponent
-import info.madless.tipplecocktails.sections.cocktails_list.di.CocktailsFragmentPresenterModule
-import info.madless.tipplecocktails.sections.cocktails_list.di.CocktailsFragmentViewModule
-import info.madless.tipplecocktails.sections.cocktails_list.di.DaggerCocktailsFragmentComponent
+import info.madless.tipplecocktails.screens.abs.BaseFragment
+import info.madless.tipplecocktails.screens.main.abs.CocktailsFragmentView
+import info.madless.tipplecocktails.screens.main.di.CocktailsFragmentComponent
+import info.madless.tipplecocktails.screens.main.di.CocktailsFragmentPresenterModule
+import info.madless.tipplecocktails.screens.main.di.CocktailsFragmentViewModule
+import info.madless.tipplecocktails.screens.main.di.DaggerCocktailsFragmentComponent
 import kotlinx.android.synthetic.main.fragment_cocktails.*
 
 /**

@@ -1,4 +1,4 @@
-package info.madless.tipplecocktails.sections;
+package info.madless.tipplecocktails;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,6 +10,6 @@ import javax.inject.Scope;
  */
 
 @Scope
-@Retention(RetentionPolicy.RUNTIME)
-public @interface PerActivityScope {
+@Retention(RetentionPolicy.CLASS)
+public @interface AppScope {
 }

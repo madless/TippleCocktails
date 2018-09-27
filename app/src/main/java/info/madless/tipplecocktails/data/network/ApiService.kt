@@ -1,7 +1,7 @@
 package info.madless.tipplecocktails.data.network
 
-import info.madless.tipplecocktails.server_models.DrinkShortResponse
-import info.madless.tipplecocktails.server_models.SearchResponse
+import info.madless.tipplecocktails.models.server_models.DrinkShortResponse
+import info.madless.tipplecocktails.models.server_models.SearchResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

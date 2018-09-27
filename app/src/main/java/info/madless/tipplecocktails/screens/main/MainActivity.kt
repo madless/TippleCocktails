@@ -1,8 +1,8 @@
-package info.madless.tipplecocktails
+package info.madless.tipplecocktails.screens.main
 
 import android.os.Bundle
-import info.madless.tipplecocktails.sections.abs.BaseActivity
-import info.madless.tipplecocktails.sections.cocktails_list.CocktailsFragment
+import info.madless.tipplecocktails.R
+import info.madless.tipplecocktails.screens.abs.BaseActivity
 
 class MainActivity : BaseActivity() {
 

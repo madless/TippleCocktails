@@ -2,8 +2,8 @@ package info.madless.tipplecocktails.data.di
 
 import dagger.Module
 import dagger.Provides
+import info.madless.tipplecocktails.AppScope
 import info.madless.tipplecocktails.data.network.ApiService
-import info.madless.tipplecocktails.sections.AppScope
 import info.madless.tipplecocktails.utils.Const
 import info.madless.tipplecocktails.utils.Logger
 import okhttp3.OkHttpClient
