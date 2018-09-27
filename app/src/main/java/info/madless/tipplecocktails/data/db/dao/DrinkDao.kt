@@ -15,7 +15,7 @@ interface DrinkDao {
     @Query("SELECT * FROM DRINKS")
     fun getAllDrinks(): List<DrinkDb>
 
-    @Query("SELECT * FROM DRINKS WHERE alcoholic = :arg0")
+    @Query("SELECT * FROM DRINKS WHERE alcoholic = :alcoholType")
     fun getDrinksByAlcoholicType(alcoholType: String): List<DrinkDb>
 
     @Insert(onConflict = REPLACE)

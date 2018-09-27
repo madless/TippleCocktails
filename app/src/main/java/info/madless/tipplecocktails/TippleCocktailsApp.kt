@@ -3,9 +3,11 @@ package info.madless.tipplecocktails
 import android.app.Application
 import android.content.Context
 import android.support.multidex.MultiDex
+import info.madless.tipplecocktails.data.db.DbService
 import info.madless.tipplecocktails.data.di.DaggerRepositoryComponent
 import info.madless.tipplecocktails.data.di.DbServiceModule
 import info.madless.tipplecocktails.data.di.RepositoryComponent
+import info.madless.tipplecocktails.utils.Const
 import info.madless.tipplecocktails.utils.Logger
 
 /**

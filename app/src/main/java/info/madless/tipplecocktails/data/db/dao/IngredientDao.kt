@@ -14,7 +14,7 @@ interface IngredientDao {
     @Query("SELECT * FROM INGREDIENTS")
     fun getAllIngredients(): List<IngredientDb>
 
-    @Query("SELECT * FROM INGREDIENTS WHERE drinkId = :arg0")
+    @Query("SELECT * FROM INGREDIENTS WHERE drinkId = :drinkId")
     fun getIngredientsByDrink(drinkId: String): List<IngredientDb>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

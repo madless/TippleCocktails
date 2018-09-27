@@ -15,6 +15,10 @@ import io.reactivex.Observable
  * 15/2/2018.
  */
 class Repository(private val apiService: ApiService, private val cacheService: CacheService, private val dbService: DbService): ApiService, DrinkDao, IngredientDao {
+
+    var isDbFilled = false
+        get()= dbService.getDrinkDao().getAllDrinks().isNotEmpty()
+
     override fun searchCocktailById(id: String): Observable<SearchResponse> {
         return apiService.searchCocktailById(id)
     }
