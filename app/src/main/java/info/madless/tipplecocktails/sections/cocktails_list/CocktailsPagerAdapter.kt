@@ -36,7 +36,7 @@ class CocktailsPagerAdapter(fragmentManager: FragmentManager, private val contex
     }
 
     override fun getCount(): Int {
-        return FRAGMENTS_COUNT
+        return data.size
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

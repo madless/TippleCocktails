@@ -35,7 +35,6 @@ class CocktailsFragment: BaseFragment(), CocktailsFragmentView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
-        presenter?.fillDb()
         presenter?.execute()
         logger.d("Fragment onViewCreated ${this.hashCode()}")
     }

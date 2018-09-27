@@ -46,8 +46,10 @@ class CocktailsFragmentPresenter() : BasePresenter() {
     }
 
     fun fillDb() {
+        logger.d("Try get json...")
         val drinks = MockHelper.getAllDrinks(TippleCocktailsApp.appContext)
         val fillDbObservable = Observable.create { emitter: ObservableEmitter<Any>? ->
+            logger.d("Started db filling...")
             for (drink in drinks) {
                 val drinkDb = DrinkDb(drink.id, drink.name, drink.category, drink.alcoholType, drink.glassType, drink.instructions, drink.cocktailImageUrl)
                 repository.insertDrink(drinkDb)
@@ -61,8 +63,9 @@ class CocktailsFragmentPresenter() : BasePresenter() {
             logger.d("Db filled!")
             emitter?.onNext(Any())
             emitter?.onComplete()
-        }.observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.io())
+        }.observeOn(AndroidSchedulers.mainThread()).subscribeOn(Schedulers.newThread())
         cocktailsFragmentView.onLoadingStarted()
+        logger.d("Try fill db...")
         fillDbObservable.subscribe({ result: Any? ->
             val alcoholicDrinksDb = repository.getDrinksByAlcoholicType(Const.TYPE_ALCOHOLIC)
             val nonAlcoholicDrinksDb = repository.getDrinksByAlcoholicType(Const.TYPE_NON_ALCOHOLIC)
