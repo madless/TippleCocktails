@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
 import info.madless.tipplecocktails.screens.abs.BaseFragment
+import info.madless.tipplecocktails.screens.main.abs.OnCocktailClickedListener
 import kotlinx.android.synthetic.main.fragment_cocktails_by_alcohol_types.*
 import java.util.*
 
@@ -47,6 +48,11 @@ class CocktailsByTypeFragment: BaseFragment() {
         rvCocktails.adapter = adapter
         rvCocktails.layoutManager = LinearLayoutManager(context)
         adapter.drinks = drinks
+        adapter.cocktailClickedListener = object: OnCocktailClickedListener {
+            override fun onCocktailClicked(drink: Drink) {
+
+            }
+        }
         adapter.notifyDataSetChanged()
     }
 

@@ -10,6 +10,7 @@ import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.request.RequestOptions
 import info.madless.tipplecocktails.R
 import info.madless.tipplecocktails.models.ui_entities.Drink
+import info.madless.tipplecocktails.screens.main.abs.OnCocktailClickedListener
 import info.madless.tipplecocktails.utils.Logger
 import info.madless.tipplecocktails.utils.inflate
 import kotlinx.android.synthetic.main.item_cocktail.view.*
@@ -20,8 +21,9 @@ import kotlinx.android.synthetic.main.item_cocktail.view.*
 
 class CocktailsListAdapter : RecyclerView.Adapter<CocktailsListAdapter.CocktailViewHolder>() {
 
-    var drinks: List<Drink> = ArrayList()
     private val logger: Logger = Logger(this.javaClass)
+    var drinks: List<Drink> = ArrayList()
+    var cocktailClickedListener: OnCocktailClickedListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = CocktailViewHolder(parent.inflate(R.layout.item_cocktail))
 
@@ -43,6 +45,9 @@ class CocktailsListAdapter : RecyclerView.Adapter<CocktailsListAdapter.CocktailV
             }
             tvTitle.text = drink.name
             tvDetails.text = drink.category
+            itemView.setOnClickListener {
+                cocktailClickedListener?.onCocktailClicked(drinks[adapterPosition])
+            }
         }
     }
 }
